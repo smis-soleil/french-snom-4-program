@@ -1,0 +1,120 @@
+/* Layout of the conference program. Colors come from theme.css. */
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html { background: var(--paper); }
+body {
+  margin: 0; padding: 13mm 16mm 0;
+  color: var(--ink); background: var(--paper);
+  font-family: var(--font); font-size: 9.2pt; line-height: 1.4;
+}
+p { margin: 4pt 0; }
+
+/* Header */
+.hero {
+  position: relative; overflow: hidden; min-height: 150pt;
+  padding: 18pt 22pt 16pt; margin: 0 0 12pt;
+  color: var(--hero-text); background: var(--hero); border-radius: 11pt;
+}
+.hero-logo {
+  position: absolute; z-index: 1; width: 132pt; height: 132pt;
+  right: 20pt; top: 50%; margin-top: -66pt;
+  display: grid; place-items: center; overflow: hidden;
+  background: var(--logo-bg); border-radius: 50%;
+  box-shadow: 0 0 0 9pt rgba(243,246,248,.09), 0 0 0 19pt rgba(243,246,248,.06), 0 0 0 30pt rgba(243,246,248,.04);
+}
+.hero-logo img { display: block; width: 84%; height: auto; margin-top: -4pt; }
+.brand {
+  position: relative; z-index: 1; margin-bottom: 9pt;
+  font-size: 8pt; font-weight: 700; letter-spacing: 2pt; text-transform: uppercase; color: var(--hero-text);
+}
+h1 {
+  position: relative; z-index: 1; margin: 0; max-width: 300pt;
+  font-size: 25pt; line-height: 1.08; letter-spacing: -.6pt; color: var(--hero-text);
+}
+.date-pill {
+  position: relative; z-index: 1; display: inline-block; margin-top: 12pt; padding: 5pt 10pt;
+  border: 1px solid rgba(243,246,248,.58); border-radius: 20pt;
+  color: var(--hero-text); font-size: 9pt; font-weight: 650;
+}
+
+/* Venue */
+.venue {
+  display: flex; align-items: center; gap: 9pt; margin: 0 0 12pt; padding: 8pt 12pt;
+  border: 1px solid var(--line); border-left: 3pt solid var(--orange); border-radius: 6pt; background: #fff;
+}
+.eyebrow { font-size: 7pt; font-weight: 800; letter-spacing: 1.2pt; color: var(--purple); text-transform: uppercase; }
+.venue-name { font-size: 10pt; font-weight: 700; color: var(--purple); }
+.venue-address { font-size: 8.2pt; color: var(--muted); }
+
+/* Day titles */
+.day {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 2pt;
+  margin: 9pt 0 6pt; padding: 0 0 5pt; border-bottom: 2pt solid var(--orange); break-after: avoid;
+}
+.day.new-page { break-before: page; padding-top: 13mm; margin-top: 0; }
+.day h2 { margin: 0; color: var(--purple); font-size: 20pt; line-height: 1.12; letter-spacing: -.25pt; font-weight: 780; }
+.day-subtitle { color: var(--muted); font-size: 9pt; line-height: 1.25; font-weight: 600; }
+
+/* Program rows */
+.agenda-item, .talk {
+  display: grid; grid-template-columns: 74pt 1fr; gap: 9pt; align-items: start;
+  padding: 2.5pt 7pt; margin: 1pt 0; border: 1px solid var(--line); border-radius: 5pt;
+  background: #fff; break-inside: avoid;
+}
+.agenda-item:nth-of-type(even), .talk:nth-of-type(even) { background: var(--pale); }
+.time, .session-time { color: var(--purple); font-size: 8.3pt; font-weight: 750; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.description { color: var(--ink); }
+.description strong { color: var(--purple); }
+
+.agenda-item.plenary {
+  padding: 7pt 9pt; border: 1.5pt solid var(--plenary-border); border-left: 4pt solid var(--orange);
+  border-radius: 7pt; background: var(--plenary-bg);
+}
+.agenda-item.plenary .time { font-size: 9pt; }
+.agenda-item.plenary .description { font-size: 10pt; font-weight: 650; }
+.agenda-item.plenary .description strong { font-weight: 800; }
+
+.agenda-item.break {
+  margin: 6pt 0; padding: 6pt 9pt; border: 1px solid var(--break-border);
+  border-left: 3pt solid var(--orange); border-radius: 6pt; background: var(--break-bg);
+}
+.agenda-item.break .description { color: var(--purple); font-weight: 650; }
+
+.session-banner {
+  display: flex; gap: 10pt; align-items: center; margin: 4pt 0 2pt; padding: 4pt 8pt;
+  color: #fff; background: var(--session); border-radius: 5pt; break-after: avoid;
+}
+.session-banner .session-time { color: var(--session-time); }
+.session-banner strong { font-size: 9pt; }
+
+/* Posters and dinner */
+.poster-section { break-before: page; padding-top: 13mm; }
+.poster-section h2, .dinner-section h2 {
+  margin: 0 0 8pt; padding-bottom: 5pt; border-bottom: 2pt solid var(--orange);
+  color: var(--purple); font-size: 17pt;
+}
+.poster-card {
+  display: grid; grid-template-columns: 24pt 1fr; gap: 8pt; align-items: start;
+  padding: 6pt 8pt; margin: 3pt 0; border: 1px solid var(--line); border-radius: 6pt;
+  background: #fff; break-inside: avoid;
+}
+.poster-number {
+  display: grid; place-items: center; width: 21pt; height: 21pt; border-radius: 50%;
+  color: var(--purple); background: #ffe5a6; font-size: 8pt; font-weight: 800;
+}
+.poster-info { font-size: 8.6pt; }
+.dinner-section { margin-top: 14pt; break-inside: avoid; }
+.dinner-section h2 { font-size: 16pt; margin-bottom: 6pt; }
+.dinner-copy { margin: 4pt 0; font-size: 9pt; }
+.restaurant-map { margin: 8pt 0 0; border: 1px solid var(--line); border-radius: 6pt; overflow: hidden; }
+.restaurant-map img { display: block; width: 100%; height: auto; }
+
+/* Footer (logos + acknowledgment), repeated on every page */
+.page-footer {
+  position: fixed; left: 16mm; right: 16mm; bottom: 10mm; height: 19mm; padding-top: 2mm;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5mm;
+  border-top: .6pt solid rgba(7,0,95,.28); background: var(--paper);
+}
+.footer-logos { display: flex; align-items: center; justify-content: center; gap: 7mm; }
+.footer-logos img { display: block; width: 39mm; height: 10mm; object-fit: contain; }
+.footer-note { font-size: 6.3pt; line-height: 1.25; color: var(--muted); text-align: center; }

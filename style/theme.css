@@ -1,0 +1,20 @@
+/* Colors and fonts of the conference program (palette of the French SNOM website). */
+:root {
+  --purple: #07005F;
+  --orange: #FFAD00;
+  --paper: #FFFFFF;
+  --pale: #FFFFFF;          /* background of alternate table rows */
+  --ink: #1F272D;
+  --muted: #5c6670;
+  --line: #dfe2e8;
+  --hero: #465873;          /* header banner */
+  --hero-text: #F3F6F8;
+  --session: #5D6E84;       /* session title cells */
+  --session-time: #FFE3A0;
+  --logo-bg: #F9F9F8;       /* background of the conference logo, fills the header circle */
+  --plenary-bg: #fff5d9;
+  --plenary-border: #f1bd45;
+  --break-bg: #fffaf0;
+  --break-border: #e8dfc7;
+  --font: "Rubik", "Inter", Arial, sans-serif;
+}
